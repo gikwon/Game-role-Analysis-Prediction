@@ -1,14 +1,7 @@
 remote_theme: pages-themes/tactile@v0.2.0
 plugins:
   - jekyll-remote-theme
-  - jekyll-include-cache
 
+# Add this line to include the custom CSS file
 include:
-  - _includes
   - assets/css/custom.css
-
-markdown: kramdown
-highlighter: rouge
-
-# Custom CSS
-style: /assets/css/custom.css
