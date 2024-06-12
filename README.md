@@ -1,6 +1,5 @@
-#League of Legends Role Analysis & Prediction
+# League of Legends Role Analysis & Prediction
 
-### DSC80-Project04
 League of Legends is..
 
 Author: Gihyeon Kwon
