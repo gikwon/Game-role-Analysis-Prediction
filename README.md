@@ -96,6 +96,19 @@ Below is the first 5 rows of cleaned data.
 
 ### Univariate Analysis
 
+Here I took at the distribution of the column `damageshare`
+<iframe
+  src="assets/hist_dmg.html"
+  width="1000"
+  height="800"
+  frameborder="0"
+></iframe>
+
+We can see that the distribution is nearly normal. We do see some players with below 0.1 damage share and even above 0.4 damage share. Remember that damage share is out of 1 and the team of 5 make up a total of 1 damage share. This shows that there are some player that perform better than other players. Lets try to find which roles those players are.
+
+
+### Bivariate Analysis
+
 First I performed univariate analysis on the normalized KDA Ratio between mid position and bottom positions:
 
 <iframe
@@ -104,10 +117,7 @@ First I performed univariate analysis on the normalized KDA Ratio between mid po
   height="800"
   frameborder="0"
 ></iframe>
-The box plot shows the distribution of each position's normalzied KDA and we can see that the min, lower quantile median, and the upper quantile for bottom position is slighter higher than that of midd;e positions.
-
-### Bivariate Analysis
-
+The box plot shows the distribution of each position's normalzied KDA and we can see that the min, lower quantile median, and the upper quantile for bottom position is slighter higher than that of middle positions.
 ### EDA
 
 ### Column Generation
