@@ -100,7 +100,7 @@ First I performed univariate analysis by looking at the distribution of the `dam
 
 <iframe
   src="assets/hist_dmg.html"
-  width="400"
+  width="1000"
   height="600"
   frameborder="0"
   style="border:0; margin:0; padding:0;"
@@ -114,7 +114,7 @@ Here I performed bivariate analysis on the normalized KDA Ratio between mid posi
 
 <iframe
   src="assets/Boxplot_KDA.html"
-  width="400"
+  width="1000"
   height="600"
   frameborder="0"
   style="border:0; margin:0; padding:0;"
