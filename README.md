@@ -102,7 +102,7 @@ Below is the first 5 rows of cleaned data.
 
 ### Univariate Analysis
 
-First I performed univariate analysis by looking at the distribution of the `damageshare`column.
+First I performed univariate analysis by looking at the distribution of the `damageshare` column.
 
 <iframe
   src="assets/hist_dmg.html"
@@ -163,12 +163,11 @@ In this sections I will be testing if the columns `barons` is dependent of any o
 
 Permutation to test dependency:
 
-- Null: Missingness of `barons` column is not dependent of another column
-- Alternative: Missingness of `barons` column is dependent of another column
+- **Null Hypothesis**: Missingness of `barons` column is not dependent of another column
+- **Alternative Hypothesis**: Missingness of `barons` column is dependent of another column
 
-Test statistics:
-- K-S Test statistics
-
+Two-Sided Test:
+- **Test Statistic**: K-S Test statistics
 - Using significant value of 0.01
 
 I tested on every single numerical columns in the dataset that were some what relevant to the analysis. But I have removed columns that were entirely missing or for columns where the values are missing when `barons` is also missing.
@@ -264,8 +263,44 @@ This is interesting as the two variables don't seem correlated what could this m
 - If the missingness of `barons` is dependent on `cspm`, it might indicate a bias in data collection. For example, games or players with higher `cspm` might be better tracked or recorded, leading to fewer missing values in `barons`..
 - `cspm` is a measure of how effectively a player can kill creeps, which is a proxy for farm efficiency and overall game performance. If `barons` are missing more frequently in games with low `cspm`, it might suggest that lower-performing games are not as thoroughly recorded or analyzed, possibly due to lack of interest or perceived importance..
 
+
+Then we take a look at a column that is `barons` is not dependent on, which is `firstbloodkill`, it's p-value is 1, meaning we fail to reject the Null.
+
+<iframe
+  src="assets/firstbloodkill_ks.html"
+  width="1000"
+  height="600"
+  frameborder="0"
+  style="border:0; margin:0; padding:0;"
+></iframe>
+
+There isn't too much interpretation to provide here, we can assume that `barons`'s missingness is not d`firtbloodkill`.
+
 ## Hypothesis Testing
-To conclude the analysis of the research question: 
+To conclude the 1st part of the project, I will be performing a hypothesis test, a permutation test to be exact, to answer the research queastion: **Which role “carries” (is the key position) in their team more often: ADCs (Bot lanes) or Mid laners?**
+
+I have picked `KDA_normal` as it is the colum that best depicts the player performance metric.
+
+- **Null Hypothesis** : There is no significant difference in the normalized KDA ratio between ADCs and Mid laners.
+
+- **Alternative Hypothesis**: The normalized KDA ratio is higher for bot position than the normalized KDA ratio for mids.
+
+One sided test:
+-**Test Statistics**: Difference in means
+- Using significant value of 0.01
+
+<iframe
+  src="assets/normalKDA_perm.html"
+  width="1000"
+  height="600"
+  frameborder="0"
+  style="border:0; margin:0; padding:0;"
+></iframe>
+
+With observed statistic, calculated by Bottom position's Normal KDA average minus Middle position;s Normal KDA average, of 0.0381, we find a P-Value of 0.0.
+
+We reject the null hypothesis, meaning there is strong evidence that Bottom positions have higher Normalized KDA ratios. Which implies that Bottom is the key role in the team and carries most of the time.
+
 
 ## Framing a Prediction Problem
 
