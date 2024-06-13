@@ -18,7 +18,8 @@ The 5 players in each team all have different roles, Top player, Jungle player, 
 
 \**Note: This is due to Mid and Bottom positions ability to deal high damage and make the play that can change the game. Some may disagree however..*
 
-So in the first part of our analysis, we will be analyzing the question: **Which role “carries” (is the key position) in their team more often: ADCs (Bot lanes) or Mid laners?**
+So in the first part of our analysis, we will be analyzing the question: 
+**Which role “carries” (is the key position) in their team more often: ADCs (Bot lanes) or Mid laners?**
 
 ### Introduction to the Data
 The data we are working with contains 148,992 rows, which translates to 12,416 different matches. 
