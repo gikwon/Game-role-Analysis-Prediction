@@ -152,7 +152,92 @@ If these data points were self-reported, I believe the column `damageshare` will
 Additional column to make the `damageshare` **Missing at Random (MAR)** would be a variable that shows the player's rank. Although unrealistic in this data as its a professional league data, hypothetically, lower ranks in the game will be less likely to report their `damageshare` values
 
 ### Missingness Dependency
+In this sections I will be testing if the columns `barons` is dependent of any other columns.
+*The `barons` columns was chosen as it was the column with the most missing values besides some columns that were entirely missing (columns that have values only to the team rows)
 
+Permutation to test dependency:
+
+- Null: Missingness of `barons` column is not dependent of another column
+- Alternative: Missingness of `barons` column is dependent of another column
+
+Test statistics:
+- K-S Test statistics
+
+- Using significant value of 0.01
+
+I tested on every single numerical columns in the dataset that were some what relevant to the analysis. But I have removed columns that were entirely missing or for columns where the values are missing when `barons` is also missing.
+
+After running permutation test with K-S Test Statistics, here were the p-values of each columns:
+
+|        value |
+|-------------:|
+| 4.78471e-231 |
+| 1.10212e-110 |
+| 1.83726e-32  |
+| 2.16284e-14  |
+| 1.43256e-12  |
+| 6.91995e-12  |
+| 1.07775e-11  |
+| 2.21896e-09  |
+| 2.14885e-08  |
+| 5.54046e-08  |
+| 1.77632e-07  |
+| 2.01857e-07  |
+| 3.21105e-07  |
+| 4.23441e-07  |
+| 3.93962e-05  |
+| 3.93962e-05  |
+| 0.000142926  |
+| 0.000603061  |
+| 0.000603397  |
+| 0.000603397  |
+| 0.000719199  |
+| 0.000728653  |
+| 0.000728653  |
+| 0.00158642   |
+| 0.00174941   |
+| 0.00396119   |
+| 0.00491397   |
+| 0.00662544   |
+| 0.00684363   |
+| 0.00684363   |
+| 0.00707355   |
+| 0.0145844    |
+| 0.0145844    |
+| 0.0709659    |
+| 0.0709659    |
+| 0.0934137    |
+| 0.0939419    |
+| 0.0939419    |
+| 0.116452     |
+| 0.116452     |
+| 0.154135     |
+| 0.191679     |
+| 0.191679     |
+| 0.199235     |
+| 0.300979     |
+| 0.316264     |
+| 0.555616     |
+| 0.701027     |
+| 0.727167     |
+| 0.727167     |
+| 0.782376     |
+| 0.812143     |
+| 0.812143     |
+| 0.834574     |
+| 0.834574     |
+| 0.936079     |
+| 0.95877      |
+| 0.994139     |
+| 0.998037     |
+| 0.998591     |
+| 0.999789     |
+| 0.999789     |
+| 1            |
+| 1            |
+| 1            |
+| 1            |
+| 1            |
 
 ## Hypothesis Testing
 
