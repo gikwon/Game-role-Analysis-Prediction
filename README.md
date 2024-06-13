@@ -10,9 +10,9 @@ The dataset we are working with is a collection of key gameplay statistics and o
 
 The 5 players in each team all have different roles, Top player, Jungle player, Middle player, Bottom player and Support player. Many have argued that the Middle position is the key role that 'carries' the team; however, others will argue that it is the Bottom position that 'carries'.
 
-\* *Note: This is due to Mid and Bottom positions ability to deal high damage and make the play that can change the game. Some may disagree however..*
+\**Note: This is due to Mid and Bottom positions ability to deal high damage and make the play that can change the game. Some may disagree however..*
 
-So in the first part of our analysis, we will be analyzing the question: ==**Which role “carries” (is the key position) in their team more often: ADCs (Bot lanes) or Mid laners?**==
+So in the first part of our analysis, we will be analyzing the question: **Which role “carries” (is the key position) in their team more often: ADCs (Bot lanes) or Mid laners?**
 
 ### Introduction to the Data
 The data we are working with contains 148,992 rows, which translates to 12,416 different matches. 
@@ -92,9 +92,20 @@ Below is the first 5 rows of cleaned data.
 | ESPORTSTMNT01_2690210 | complete           |      1 |   12.01 |               4 | Blue   | bot        | Gamin        | oe:player:998b3e49b01ecc41eacc392477a98cf | Fredit BRION Challengers | oe:team:68911b3329146587617ab2973106e23 | Samira     |         1713 | False    |       2 |        4 |         2 |           9 |           19 |             0 |             0 |             0 |            0 |            1 |                0 |                  1 |                  0 |     0.3152 | 0.9807 |           nan |       nan |           nan |               nan |                   nan |         nan |         nan |      nan |      nan |         nan |        nan |                      nan |      nan |          nan |           nan |       nan |           nan |          nan |              nan |          nan |        0 |            0 |          nan |      nan |          nan |             nan |                  nan |            nan |                nan |            0 |                0 |               11106 | 389.002 |     0.196358  |                463.853 |                    218.879 |            12 | 0.4203 |             6 | 0.2102 |                    4 |            25 | 0.8757 |       10605 |         6835 |      239.405 |          0.242201 |       10425 |    nan |   nan |        226 |           208 |             18 |                     nan |                       nan | 7.9159 |       3600 |     3103 |       78 |           3304 |         2838 |           90 |            296 |          265 |          -12 |           1 |             1 |            0 |               0 |                 0 |                0 |       5461 |     4591 |      115 |           6254 |         5934 |          149 |           -793 |        -1343 |          -34 |           2 |             1 |            2 |               3 |                 3 |                0 |                28.55 |          0.0700525 |            0.0700525 |           0.140105  |   0.4      |     0.8     |                  0.4 |    1.19333 |  0.413333 |     0.364742 |   0.182371  |
 | ESPORTSTMNT01_2690210 | complete           |      1 |   12.01 |               5 | Blue   | sup        | Loopy        | oe:player:e9741b3a238723ea6380ef2113fae63 | Fredit BRION Challengers | oe:team:68911b3329146587617ab2973106e23 | Leona      |         1713 | False    |       1 |        5 |         6 |           9 |           19 |             0 |             0 |             0 |            0 |            1 |                1 |                  0 |                  0 |     0.3152 | 0.9807 |           nan |       nan |           nan |               nan |                   nan |         nan |         nan |      nan |      nan |         nan |        nan |                      nan |      nan |          nan |           nan |       nan |           nan |          nan |              nan |          nan |        0 |            0 |          nan |      nan |          nan |             nan |                  nan |            nan |                nan |            0 |                0 |                3663 | 128.301 |     0.0647631 |                475.026 |                    490.123 |            29 | 1.0158 |            14 | 0.4904 |                   11 |            69 | 2.4168 |        6678 |         2908 |      101.856 |          0.103054 |        6395 |    nan |   nan |         42 |            42 |              0 |                     nan |                       nan | 1.4711 |       2678 |     2161 |       16 |           2150 |         2748 |           15 |            528 |         -587 |            1 |           1 |             1 |            0 |               0 |                 0 |                1 |       3836 |     3588 |       28 |           3393 |         4085 |           21 |            443 |         -497 |            7 |           1 |             2 |            2 |               0 |                 6 |                2 |                28.55 |          0.0350263 |            0.210158  |           0.175131  |   0.166667 |     1.16667 |                  0.7 |    1.19333 |  0.413333 |     0.531915 |   0.0759878 |
 
-Note: **The columns will look messy here but I have kept many of the columns to use later in my analysis**
+\**Note: The columns will look messy here but I have kept many of the columns to use later in my analysis*
 
 ### Univariate Analysis
+
+First I performed univariate analysis on the normalized KDA Ratio between mid position and bottom positions:
+
+<iframe
+  src="assets/Boxplot_KDA.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The box plot shows the distribution of each position's normalzied KDA and we can see that the min, lower quantile median, and the upper quantile for bottom position is slighter higher than that of midd;e positions.
 
 ### Bivariate Analysis
 
