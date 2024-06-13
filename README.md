@@ -320,6 +320,8 @@ This classification can be helpful in several ways:
 
 As for the metric, I will be utilizing *Accuracy* as my performance metric. The reason is that the predicting variable `position` is evenly distributed to all five of the roles. This is because each game has 5 unique positions, making the data for `position` balanced. Which makes *Accuracy* a good metric for my model.
  
+For both of my training and testing sets, I have used 75/25 split, which were utlizied through both of the models to ensure seen and unseen data remains the same and to compare final model performance to baseline model performance.
+
 *Lastly, the time of prediction is at the very end of the game, meaning I'll have all the game data in hand to utlize in the models.*
 
 ## Baseline Model
@@ -354,13 +356,55 @@ The rest will be used to train the model.
 
 I used a *ColumnTransformer* to Simple Mean Impute all the columns and then put it in pipeline as preprocessor with **RandomForestClassifier**
 
-The baseline model results:
+Baseline model performance results:
 - Train set *accuracy* of 0.999987: 99.9987% of data predicted correctly.
 - Test set *accuracy* of 0.8466057: 84.66057% of data predicted correctly.
 
 I believe that my model is definitely good for it being a baseline model. However, I believe there are more possible encodings and better hyperparameters to test to gain better results.
 
 ## Final Model
+For my final model, I have standard scaled these columns: `cspm`, `dpm`, `monster_kpm`.
+Although they are in units of 'per minute', I thought that still standardizing these values will help further.
+For ex. (The damage per second in a long game will be slightly lower than an action packed shorter game)
 
+In addition to these 3 new features, I used *GridSearchCV* to find hyperparameters that would best predict the `position_encoded` variable in my *RandomForestClassifier*
+
+These were the values I used to Grid Search the best parameters:
+Max_depth using:
+- 'classifier__max_depth': [2, 3, 4, 5, 7, 10, 13, 15, 18, 20, 25, 30, None]
+- Reason is to control the complexity, which ultimately helps control overfitting the data.
+
+Minimum samples split using:
+- 'classifier__min_samples_split': [2, 5, 10, 20, 50, 100, 200]
+- Also control overfitting of the data and improves generalization of the model.
+
+Final model performance results:
+- Best parameters found: {'classifier__max_depth': 30, 'classifier__min_samples_split': 10}
+- Best cross-validation Training set *accuracy*: 0.9998: 99.98% of data predicted correctly.
+- Test set *accuracy*: 0.9997: 99.97% of data predicted correctly.
+
+The Test set *accuracy* increased by roughly 15.31 percentage points.This is a huge improvement and our final model predicting 99.97% of the test data on a muliclass classification is great accomplishment!
 
 ## Fairness Analysis
+
+To analyze the fairness of my model, I decided to split the data into two groups, one where their `damageshare` is below median and other as above median.
+
+I will be running a permutation test on these two groups on the predicted `position_encoded`to test the fairness of the model. Will still be using *accurancy* as the metric.
+
+- Group X: Below median damaging players
+- Group Y: Above median damaging players
+
+Permutation test based on `damageshare`
+ - Median `damageshare` around 0.20(roughly: 0.198), which makes sense as there are 5 players: 1/5
+    - Classifying *low damage* as below median `damageshare`
+    - *high damage* as above median`damageshare`
+
+
+- Null Hypothesis: Our model is fair. Its accuracy for low damage share players and high damage share players are roughly the same, and any differences are due to random chance.
+ 
+- Alternative Hypothesis: Our model is unfair. Its accuracy for high damage share players are higher then the accuracy of the model for low damage share players
+
+Fairness Analysis permutation test results:
+- *P-Value*: 0.5279
+- We fail to reject the null.
+- Meaning there is strong evidence that our Final model is fair across the low damage players and high damage players.
