@@ -301,7 +301,6 @@ With observed statistic, calculated by Bottom position's Normal KDA average minu
 
 We reject the null hypothesis, meaning there is strong evidence that Bottom positions have higher Normalized KDA ratios. Which implies that Bottom is the key role in the team and carries most of the time.
 
-
 ## Framing a Prediction Problem
 
 
