@@ -5,6 +5,12 @@ League of Legends, LoL for short, is a multiplayer online battle arena (MOBA) ga
 Author: Gihyeon Kwon
 
 ## Introduction
+In this project, I aim to break the project into two components:
+1. Analysis of the research question
+2. Prediction of a new prediction problem
+
+Both utilizing the same dataset that will be introduced below.
+
 ### Introduction the Research Question
 The dataset we are working with is a collection of key gameplay statistics and outcomes from a collection of competitive LoL matches collected by Oracle's Elixir. A single game is captured with 12 rows of data, first 5 consisting of the 5 players in one team and next 5 from the other team; the last 2 rows capture the overall statistic of each team. 
 
@@ -259,7 +265,7 @@ This is interesting as the two variables don't seem correlated what could this m
 - `cspm` is a measure of how effectively a player can kill creeps, which is a proxy for farm efficiency and overall game performance. If `barons` are missing more frequently in games with low `cspm`, it might suggest that lower-performing games are not as thoroughly recorded or analyzed, possibly due to lack of interest or perceived importance..
 
 ## Hypothesis Testing
-
+To conclude the analysis of the research question: 
 
 ## Framing a Prediction Problem
 
