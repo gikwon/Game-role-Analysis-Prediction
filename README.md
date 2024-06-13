@@ -133,13 +133,23 @@ To compare other key performance metrics between mid and bot positions, I made a
 From this table we can see all average values except assists_per_minute are higher for the bottom position.
 *But bottom position's standard deviation values seem higher than middle position's in most columns..
 
-### EDA
-
-### Column Generation
-
-
 ## Assessment of Missingness
+
 ### NMAR Analysis
+In the data, I believe the columns `ban1`, `ban2`, `ban3`, `ban4`, `ban5` are all **Not Missing at Random (NMAR).** 
+
+Before the start of every game, there is a phase to ban a champion (game character) so that the oppossing team
+and their own team cannot select that specific champion.
+
+The missingness of those `ban` columns imply that no *bans* were made. Meaning the value of the `ban` columns are missing because the players made the decision to not ban any champion. Making the missingness of the columns dependent of themselves. 
+
+Additional column required to make the columns **Missing at Random (MAR)** would be a binary variable that indicates all players have banned a champion. 
+
+*As these ideas above were introduced in the example from a previous quarter, I decided to make a hypothetical situation:*
+
+If these data points were self-reported, I believe the column `damageshare` will be **Not Missing at Random (NMAR).** This is because players with extremly high or extremely low damageshare values will opt to not report their damage share values.
+
+Additional column to make the `damageshare` **Missing at Random (MAR)** would be a variable that shows the player's rank. Although unrealistic in this data as its a professional league data, hypothetically, lower ranks in the game will be less likely to report their `damageshare` values
 
 ### Missingness Dependency
 
