@@ -169,75 +169,94 @@ I tested on every single numerical columns in the dataset that were some what re
 
 After running permutation test with K-S Test Statistics, here were the p-values of each columns:
 
-|        value |
-|-------------:|
-| 4.78471e-231 |
-| 1.10212e-110 |
-| 1.83726e-32  |
-| 2.16284e-14  |
-| 1.43256e-12  |
-| 6.91995e-12  |
-| 1.07775e-11  |
-| 2.21896e-09  |
-| 2.14885e-08  |
-| 5.54046e-08  |
-| 1.77632e-07  |
-| 2.01857e-07  |
-| 3.21105e-07  |
-| 4.23441e-07  |
-| 3.93962e-05  |
-| 3.93962e-05  |
-| 0.000142926  |
-| 0.000603061  |
-| 0.000603397  |
-| 0.000603397  |
-| 0.000719199  |
-| 0.000728653  |
-| 0.000728653  |
-| 0.00158642   |
-| 0.00174941   |
-| 0.00396119   |
-| 0.00491397   |
-| 0.00662544   |
-| 0.00684363   |
-| 0.00684363   |
-| 0.00707355   |
-| 0.0145844    |
-| 0.0145844    |
-| 0.0709659    |
-| 0.0709659    |
-| 0.0934137    |
-| 0.0939419    |
-| 0.0939419    |
-| 0.116452     |
-| 0.116452     |
-| 0.154135     |
-| 0.191679     |
-| 0.191679     |
-| 0.199235     |
-| 0.300979     |
-| 0.316264     |
-| 0.555616     |
-| 0.701027     |
-| 0.727167     |
-| 0.727167     |
-| 0.782376     |
-| 0.812143     |
-| 0.812143     |
-| 0.834574     |
-| 0.834574     |
-| 0.936079     |
-| 0.95877      |
-| 0.994139     |
-| 0.998037     |
-| 0.998591     |
-| 0.999789     |
-| 0.999789     |
-| 1            |
-| 1            |
-| 1            |
-| 1            |
-| 1            |
+|                          |        value |
+|:-------------------------|-------------:|
+| cspm                     | 4.78471e-231 |
+| minionkills              | 1.10212e-110 |
+| ckpm                     | 1.83726e-32  |
+| wardskilled              | 2.16284e-14  |
+| wcpm                     | 1.43256e-12  |
+| gamelength               | 6.91995e-12  |
+| team kpm                 | 1.07775e-11  |
+| visionscore              | 2.21896e-09  |
+| wardsplaced              | 2.14885e-08  |
+| teamkills                | 5.54046e-08  |
+| vspm                     | 1.77632e-07  |
+| teamdeaths               | 2.01857e-07  |
+| total cs                 | 3.21105e-07  |
+| wpm                      | 4.23441e-07  |
+| assistsat15              | 3.93962e-05  |
+| opp_assistsat15          | 3.93962e-05  |
+| controlwardsbought       | 0.000142926  |
+| dpm                      | 0.000603061  |
+| opp_csat15               | 0.000603397  |
+| csat15                   | 0.000603397  |
+| goldspent                | 0.000719199  |
+| deathsat15               | 0.000728653  |
+| opp_deathsat15           | 0.000728653  |
+| totalgold                | 0.00158642   |
+| damagetakenperminute     | 0.00174941   |
+| monsterkills             | 0.00396119   |
+| assists                  | 0.00491397   |
+| deaths                   | 0.00662544   |
+| assistsat10              | 0.00684363   |
+| opp_assistsat10          | 0.00684363   |
+| earnedgold               | 0.00707355   |
+| opp_csat10               | 0.0145844    |
+| csat10                   | 0.0145844    |
+| opp_deathsat10           | 0.0709659    |
+| deathsat10               | 0.0709659    |
+| damagetochampions        | 0.0934137    |
+| opp_killsat15            | 0.0939419    |
+| killsat15                | 0.0939419    |
+| opp_xpat15               | 0.116452     |
+| xpat15                   | 0.116452     |
+| damageshare              | 0.154135     |
+| opp_killsat10            | 0.191679     |
+| killsat10                | 0.191679     |
+| damagemitigatedperminute | 0.199235     |
+| earnedgoldshare          | 0.300979     |
+| doublekills              | 0.316264     |
+| kills                    | 0.555616     |
+| earned gpm               | 0.701027     |
+| goldat15                 | 0.727167     |
+| opp_goldat15             | 0.727167     |
+| xpdiffat10               | 0.782376     |
+| goldat10                 | 0.812143     |
+| opp_goldat10             | 0.812143     |
+| xpat10                   | 0.834574     |
+| opp_xpat10               | 0.834574     |
+| golddiffat15             | 0.936079     |
+| golddiffat10             | 0.95877      |
+| csdiffat15               | 0.994139     |
+| csdiffat10               | 0.998037     |
+| xpdiffat15               | 0.998591     |
+| firstbloodassist         | 0.999789     |
+| firstblood               | 0.999789     |
+| quadrakills              | 1            |
+| firstbloodkill           | 1            |
+| triplekills              | 1            |
+| pentakills               | 1            |
+| firstbloodvictim         | 1            |
+
+I have found that the smallest p_value is for the column `cspm`.
+
+<iframe
+  src="assets/cspm_ks.html"
+  width="1000"
+  height="600"
+  frameborder="0"
+  style="border:0; margin:0; padding:0;"
+></iframe>
+
+As the p_value of cspm is 4.78471e-231, which is less than 0.01, we reject the null hypothesis of: 
+Missingness of `barons` column is not dependent of another column.
+
+This means that the `barons` column has high chance of being dependent on another column which is `cspm`
+
+This is interesting as the two variables don't seem correlated what could this mean for us regarding the research question?
+- If the missingness of `barons` is dependent on `cspm`, it might indicate a bias in data collection. For example, games or players with higher `cspm` might be better tracked or recorded, leading to fewer missing values in `barons`..
+- `cspm` is a measure of how effectively a player can kill creeps, which is a proxy for farm efficiency and overall game performance. If `barons` are missing more frequently in games with low `cspm`, it might suggest that lower-performing games are not as thoroughly recorded or analyzed, possibly due to lack of interest or perceived importance..
 
 ## Hypothesis Testing
 
