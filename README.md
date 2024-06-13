@@ -279,11 +279,14 @@ There isn't too much interpretation to provide here, we can assume that `barons`
 ## Hypothesis Testing
 To conclude the 1st part of the project, I will be performing a hypothesis test, a permutation test to be exact, to answer the research queastion: **Which role “carries” (is the key position) in their team more often: ADCs (Bot lanes) or Mid laners?**
 
-I have picked `KDA_normal` as it is the colum that best depicts the player performance metric.
 
-- **Null Hypothesis** : There is no significant difference in the normalized KDA ratio between ADCs and Mid laners.
+I have engineered a new column `kda_dmg`, which is `kda_normal` *  `damageshare`.
+The reason for this variable is that a KDA will not be enough to tell us if the player carried the game. The player can have high KDA but low `damageshare`, which implies that were stealing kills.
+Multiplying the two key metric columns together will give us a better idea for the metric that shows who carries the team.
 
-- **Alternative Hypothesis**: The normalized KDA ratio is higher for bot position than the normalized KDA ratio for mids.
+- **Null Hypothesis** : There is no significant difference in the normalized KDA times Damage Share between ADCs and Mid laners.
+
+- **Alternative Hypothesis**: The KDA times Damage Share is higher for bot position than the KDA times Damage Share for mids.
 
 One sided test:
 -**Test Statistics**: Difference in means
@@ -303,9 +306,59 @@ We reject the null hypothesis, meaning there is strong evidence that Bottom posi
 
 ## Framing a Prediction Problem
 
+Now for the 2nd part of the project!
+
+I will be looking into **predicting the player's role given their post-game statistics.**
+In more detail, as there are five different positions in each team (top, jng, mid, bot, sup) can we predict what the players' roles were given their post-game data. 
+
+Since we are predicting a players role, this is a classification problem. More formally, this is a multiclass classification predicting the response variable `position`.
+
+This classification can be helpful in several ways:
+- Identifying these roles from statistics can provide insights into how well a player performed their assigned role. 
+- Also help in assessing the overall team dynamics and coordination. 
+- Help in identifying trends and patterns in gameplay. This can be valuable for game developers, analysts, and researchers studying the evolution of playstyles and strategies in the game.
+
+As for the metric, I will be utilizing *Accuracy* as my performance metric. The reason is that the predicting variable `position` is evenly distributed to all five of the roles. This is because each game has 5 unique positions, making the data for `position` balanced. Which makes *Accuracy* a good metric for my model.
+ 
+*Lastly, the time of prediction is at the very end of the game, meaning I'll have all the game data in hand to utlize in the models.*
 
 ## Baseline Model
 
+For my models, I have engineered a few more features that can be potentially be useful:
+- `kda_15`: KDA ratio at 15 minutes. It is calculated as (kills at 15 minutes + assists at 15 minutes) / (deaths at 15 minutes + 1).
+
+- `kd_15`: Kill/Death ratio at 15 minutes. It is calculated as kills at 15 minutes / (deaths at 15 minutes + 1).
+
+- `kda_10`: KDA ratio at 10 minutes. It is calculated as (kills at 10 minutes + assists at 10 minutes) / (deaths at 10 minutes + 1).
+
+- `kd_10`: Kill/Death ratio at 10 minutes. It is calculated as kills at 10 minutes / (deaths at 10 minutes + 1).
+
+- `monster_kpm`: Monster kills per minute. It is calculated as monster kills / game length in minutes.
+
+- `vision_pm`: Vision score per minute. It is calculated as vision score / game length in minutes.
+
+The features I used were:
+- `position_encoded`: Nominal
+- `cspm`: Quantitative
+- `kda_normal`: Quantitative
+- `xpat15`: Quantitative
+- `monster_kpm`: Quantitative
+- `damageshare`: Quantitative
+- `firstbloodkill`: : Nominal
+- `dpm`: Quantitative
+- `goldat15`: Quantitative
+- `vision_pm`: Quantitative
+
+The `position_encoded` is the outcome variable that I created using **label_encoder** on `position`.
+The rest will be used to train the model.
+
+I used a *ColumnTransformer* to Simple Mean Impute all the columns and then put it in pipeline as preprocessor with **RandomForestClassifier**
+
+The baseline model results:
+- Train set *accuracy* of 0.999987: 99.9987% of data predicted correctly.
+- Test set *accuracy* of 0.8466057: 84.66057% of data predicted correctly.
+
+I believe that my model is definitely good for it being a baseline model. However, I believe there are more possible encodings and better hyperparameters to test to gain better results.
 
 ## Final Model
 
