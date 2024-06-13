@@ -100,11 +100,10 @@ First I performed univariate analysis on the normalized KDA Ratio between mid po
 
 <iframe
   src="assets/Boxplot_KDA.html"
-  width="800"
-  height="600"
+  width="1000"
+  height="800"
   frameborder="0"
 ></iframe>
-
 The box plot shows the distribution of each position's normalzied KDA and we can see that the min, lower quantile median, and the upper quantile for bottom position is slighter higher than that of midd;e positions.
 
 ### Bivariate Analysis
