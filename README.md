@@ -409,6 +409,5 @@ Permutation test based on `damageshare`
 Fairness Analysis permutation test results:
 - *P-Value*: 0.5279
 - We fail to reject the null.
-- 
 
 **Meaning there is strong evidence that our Final model is *fair* across the low damage players and high damage players.**
