@@ -286,9 +286,10 @@ I have engineered a new column `kda_dmg`, which is `kda_normal` *  `damageshare`
 The reason for this variable is that a KDA will not be enough to tell us if the player carried the game. The player can have high KDA but low `damageshare`, which implies that were stealing kills.
 Multiplying the two key metric columns together will give us a better idea for the metric that shows who carries the team.
 
-- **Null Hypothesis** : There is no significant difference in the normalized KDA times Damage Share between ADCs and Mid laners.
+- **Null Hypothesis** : The normalized KDA times Damage Share for ADCs (bot lane) is less than or equal to the normalized KDA times Damage Share for Mid laners.
 
-- **Alternative Hypothesis**: The KDA times Damage Share is higher for bot position than the KDA times Damage Share for mids.
+- **Alternative Hypothesis**: The normalized KDA times Damage Share for ADCs (bot lane) is greater than the normalized KDA times Damage Share for Mid laners.
+
 
 One sided test:
 -**Test Statistics**: Difference in means
